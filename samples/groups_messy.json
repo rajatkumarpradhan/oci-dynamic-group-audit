@@ -1,0 +1,17 @@
+{
+  "dynamic_groups": [
+    {"ocid": "ocid1.dynamicgroup.oc1..g1", "name": "all-instances",
+     "description": "everything, historically",
+     "matching_rule": "all {resource.type = 'instance'}", "matched_count": 87},
+    {"ocid": "ocid1.dynamicgroup.oc1..g2", "name": "ml-training",
+     "description": "",
+     "matching_rule": "all {instance.compartment.id = 'ocid1.compartment.oc1..ml'}", "matched_count": 4},
+    {"ocid": "ocid1.dynamicgroup.oc1..g3", "name": "retired-batch",
+     "description": "old batch fleet",
+     "matching_rule": "all {instance.compartment.id = 'ocid1.compartment.oc1..batch'}", "matched_count": 0}
+  ],
+  "policies": [
+    {"name": "ml-policy",
+     "statements": ["Allow dynamic-group ml-training to read objects in compartment ml"]}
+  ]
+}
