@@ -1,0 +1,11 @@
+{
+  "dynamic_groups": [
+    {"ocid": "ocid1.dynamicgroup.oc1..g9", "name": "prod-workers",
+     "description": "Production worker instances in the prod compartment",
+     "matching_rule": "all {instance.compartment.id = 'ocid1.compartment.oc1..prod'}", "matched_count": 12}
+  ],
+  "policies": [
+    {"name": "prod-workers-policy",
+     "statements": ["Allow dynamic-group prod-workers to read objects in compartment prod"]}
+  ]
+}
